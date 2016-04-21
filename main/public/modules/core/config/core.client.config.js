@@ -15,8 +15,8 @@
             });
 
         $mdThemingProvider.theme('default')
-            .primaryPalette('indigo')
-            .accentPalette('pink');
+            .primaryPalette('light-blue')
+            .accentPalette('deep-orange');
     });
 
     module.run(function(Restangular, gaToast, $state, $rootScope, $timeout, gaFlashMessages, _,

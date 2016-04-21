@@ -9,7 +9,7 @@
             .state('home', {
                 url         : '/',
                 controller  : 'HomeController',
-                templateUrl : '/p/modules/core/home/home.client.view.html'
+                templateUrl : '/p/modules/core/home/home.client.view.html' 
             })
             .state('feedback', {
                 url         : '/feedback',

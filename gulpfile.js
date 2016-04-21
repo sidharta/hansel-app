@@ -51,6 +51,7 @@
             'lib/angular-material/angular-material.js',
             'lib/lodash/lodash.js',
             'lib/lrInfiniteScroll/lrInfiniteScroll.js',
+            'lib/mapbox.js/mapbox.js',
             'lib/angulartics/src/angulartics.js',
             'lib/angulartics/src/angulartics-ga.js'
         ],

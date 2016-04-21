@@ -1,0 +1,15 @@
+<div layout="row" class="w-100" layout-align="space-between start">
+  <md-content flex flex-gt-lg="70" class="md-whiteframe-z1 no-overflow-x">
+    <div id='map-one' class="map"> </div>
+  </md-content>
+  <md-list flex="25">
+    <md-list-item class="md-3-line" ng-repeat="crumb in crumbs">
+      <div class="md-list-item-text" layout="column">
+        <h3>{{ crumb.code }}</h3>
+        <h4>asdsd asda</h4>
+        <p>kjasd kjads </p>
+      </div>
+    </md-list-item>
+    <md-progress-linear ng-show="isLoading" md-mode="indeterminate" class="pad-bot-10"></md-progress-linear>
+  </md-list>
+</div>
