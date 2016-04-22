@@ -1,6 +1,7 @@
 <div data-ng-controller="SidenavController">
-    <md-toolbar>
-        <div layout="row" layout-align="center center" class="md-toolbar-tools">
+    <md-toolbar class="md-tall">
+        <span flex="" class="flex"></span>
+        <div layout="row" layout-align="center center" class="md-toolbar-tools ">
             <h1 class="nowrap">
                 <a ui-sref="home" tabindex="-1">
                     <span class="f-400">{{ cfg.brand_name }}</span>
@@ -31,6 +32,10 @@
         <md-button ui-sref="users">
             <i class="fa fa-users btn-icon"></i>
             Users
+        </md-button>
+        <md-button ui-sref="historico">            
+            <i class="fa fa-history btn-icon"></i>
+            Histórico
         </md-button>
         <md-button ng-show="cfg.has_feedback_form" ui-sref="feedback">
             <i class="fa fa-comment btn-icon"></i>

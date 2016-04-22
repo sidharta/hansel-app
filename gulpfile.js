@@ -52,7 +52,9 @@
             'lib/lodash/lodash.js',
             'lib/lrInfiniteScroll/lrInfiniteScroll.js',
             'lib/angulartics/src/angulartics.js',
-            'lib/angulartics/src/angulartics-ga.js'
+            'lib/angulartics/src/angulartics-ga.js',
+            'lib/angular-ui-map/ui-map.js',
+            'lib/angular-ui-event/dist/event.js',
         ],
         scripts : [
             'application.js',
