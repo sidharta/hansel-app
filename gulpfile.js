@@ -23,6 +23,7 @@
     var htmlhint = require('gulp-htmlhint');
     var templateCache = require('gulp-angular-templatecache');
     var zip = require('gulp-zip');
+    var merge = require('merge-stream');
 
     var rootDir = 'main';
 
@@ -115,7 +116,14 @@
         gulp.src(jsFiles.scripts, {
             cwd : publicDir
         }).pipe(ngAnnotate()).pipe(uglify('scripts.min.js')).pipe(gulp.dest(distDir));
+        
         gulp.src('style.css', {
+            cwd : distDir
+        }).pipe(minifyCSS()).pipe(rename({
+            suffix : '.min'
+        })).pipe(gulp.dest(distDir));
+
+        gulp.src('angular-material.css', {
             cwd : distDir
         }).pipe(minifyCSS()).pipe(rename({
             suffix : '.min'
@@ -123,11 +131,18 @@
     });
 
     gulp.task('less', function() {
-        return gulp.src(cssFiles.concat(manifestLessFile), {
+        var cssStream = gulp.src(cssFiles, {
+            cwd : publicDir
+        })
+        .pipe(gulp.dest(distDir));
+
+        var lessStream = gulp.src(manifestLessFile, {
             cwd : publicDir
         }).pipe(sourcemaps.init()).pipe(less({
             paths : lessPaths
         })).pipe(sourcemaps.write()).pipe(concatCss('style.css')).pipe(gulp.dest(distDir));
+
+        return merge(cssStream, lessStream);
     });
 
     gulp.task('watch-less', function() {
