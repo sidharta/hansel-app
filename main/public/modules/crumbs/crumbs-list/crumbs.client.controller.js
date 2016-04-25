@@ -4,7 +4,7 @@
 
     function updateMarkers(crumbs, map) {
       angular.forEach(crumbs, function(o){
-        L.marker([o.lat, o.lng], {draggable: true}).addTo(map);
+        L.marker([o.lat, o.lng]).addTo(map);
       });
     }
 
