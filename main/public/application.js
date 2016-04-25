@@ -55,3 +55,5 @@ angular.element(document).ready(function() {
         window.location.hash = '#!';
     }
 });
+
+angular.bootstrap(document, [AppConfig.applicationModuleName]);
