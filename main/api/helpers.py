@@ -93,7 +93,7 @@ def make_list_response(reponse_list, cursor=None, more=False, total_count=None):
     return {
         'list': reponse_list,
         'meta': {
-            'nextCursor': cursor.urlsafe(),
+            'nextCursor': cursor.urlsafe() if cursor != None else None,
             'more': more,
             'totalCount': total_count
         }
@@ -159,6 +159,3 @@ class ArgumentValidator(model.BaseValidator):
         if not cursor:
             return None
         return Cursor(urlsafe=cursor)
-
-
-
