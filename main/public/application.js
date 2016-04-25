@@ -57,3 +57,5 @@ angular.element(document).ready(function() {
 
     angular.bootstrap(document, [AppConfig.applicationModuleName]);
 });
+
+angular.bootstrap(document, [AppConfig.applicationModuleName]);
