@@ -5,9 +5,9 @@
   <md-list flex="25">
     <md-list-item class="md-3-line" ng-repeat="crumb in crumbs">
       <div class="md-list-item-text" layout="column">
-        <h3>{{ crumb.code }}</h3>
-        <h4>asdsd asda</h4>
-        <p>kjasd kjads </p>
+        <h3>{{ crumb.key }}</h3>
+        <h4>{{crumb.lat}}</h4>
+        <p>{{crumb.lng}}</p>
       </div>
     </md-list-item>
     <md-progress-linear ng-show="isLoading" md-mode="indeterminate" class="pad-bot-10"></md-progress-linear>
