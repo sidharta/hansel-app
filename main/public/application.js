@@ -16,8 +16,7 @@ var AppConfig = (function() {
         'ngMaterial',
         'lrInfiniteScroll',
         'angulartics',
-        'angulartics.google.analytics',
-        'ui.map'
+        'angulartics.google.analytics'
     ];
 
     // Add a new vertical module
@@ -56,9 +55,3 @@ angular.element(document).ready(function() {
         window.location.hash = '#!';
     }
 });
-
-// Google Maps trick
-function onGoogleReady() {
-    initGA();
-    angular.bootstrap(document, [AppConfig.applicationModuleName]);
-}

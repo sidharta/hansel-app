@@ -30,13 +30,11 @@
 # block scripts
 # endblock
 <script type="text/javascript">
-    function initGA() {        
-        var module = angular.module('hansel-core');
-        module.value('gaAuthenticatedUser', {{ user | tojson | safe }});
-        module.value('gaAppConfig', {{ app_config | tojson | safe }});
-        module.value('gaFlashMessages', {{ get_flashed_messages() | tojson | safe }});
-        module.value('gaValidators', {{ validators | tojson | safe }});
-    }
+    var module = angular.module('hansel-core');
+    module.value('gaAuthenticatedUser', {{ user | tojson | safe }});
+    module.value('gaAppConfig', {{ app_config | tojson | safe }});
+    module.value('gaFlashMessages', {{ get_flashed_messages() | tojson | safe }});
+    module.value('gaValidators', {{ validators | tojson | safe }});
 </script>
 </body>
 </html>
