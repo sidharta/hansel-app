@@ -35,7 +35,8 @@ class CrumbsAPI(Resource):
 
         mapbox_url = '{url}/{lng},{lat}.json?access_token={token}&types=address'.format(**mapbox_params)
         response = json.load(urllib2.urlopen(mapbox_url))
-        crumb.place = response['features'][0]['place_name']
+        addresses = response['features']
+        if addresses != None and len(addresses): crumb.place = addresses[0]['place_name'] 
 
         crumb.put()
         return make_empty_ok_response()
