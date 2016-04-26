@@ -7,7 +7,10 @@
             .state('crumbs', {
                 url         : '/crumbs',
                 controller  : 'CrumbsController',
-                templateUrl : '/p/modules/crumbs/crumbs-list/crumbs.client.view.html'
+                templateUrl : '/p/modules/crumbs/crumbs-list/crumbs.client.view.html',
+                data:{
+                  mainTitle: 'Crumbs'
+                }
             });
     });
 }());

@@ -8,15 +8,21 @@
       });
     }
 
-    module.controller('CrumbsController', function($scope, Restangular) {
+    module.controller('CrumbsController', function($scope, Restangular, $rootScope) {
 
         $scope.crumbs = [];
+        $scope.selectedCrumb = null;
+        $scope.select = function(crumb) {
+          $scope.selectedCrumb = crumb;
+        };
 
-        $scope.$on('$stateChangeSuccess', function() {
+        $scope.$on('$stateChangeSuccess', function(_, route) {
             $scope.isLoading = true;
 
+            $rootScope.mainTitle = route.data.mainTitle;
+
             L.mapbox.accessToken = 'pk.eyJ1Ijoic2lkaGFydGEiLCJhIjoiY2ltczg2OW1yMDFpNHZsbTR6MWs5ZHlwbSJ9.T5h2oS8vItUFM9__uoRvaA';
-            var map = L.mapbox.map('map-one', 'mapbox.streets').setView([-19.8929, -49.0252], 8);
+            var map = L.mapbox.map('map-one', 'mapbox.streets').setView([-19.916681, -43.934493], 8);
 
             Restangular.all('crumbs').getList().then(function(crumbs) {
                 $scope.crumbs = crumbs;

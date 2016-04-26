@@ -116,7 +116,7 @@
         gulp.src(jsFiles.scripts, {
             cwd : publicDir
         }).pipe(ngAnnotate()).pipe(uglify('scripts.min.js')).pipe(gulp.dest(distDir));
-        
+
         gulp.src('style.css', {
             cwd : distDir
         }).pipe(minifyCSS()).pipe(rename({
