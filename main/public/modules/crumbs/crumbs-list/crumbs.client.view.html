@@ -1,15 +1,33 @@
-<div layout="row" class="w-100" layout-align="space-between start">
-  <md-content flex flex-gt-lg="70" class="md-whiteframe-z1 no-overflow-x">
+<div layout="row" class="w-100 crumbs-container" layout-align="space-between start">
+  <md-content flex="70" class="md-whiteframe-z1 no-overflow-x">
     <div id='map-one' class="map"> </div>
   </md-content>
-  <md-list flex="25">
-    <md-list-item class="md-3-line" ng-repeat="crumb in crumbs">
+  <md-list flex layout-padding>
+    <md-list-item
+      ng-repeat-start="crumb in crumbs"
+      class="md-3-line"
+      ng-click="select(crumb)">
       <div class="md-list-item-text" layout="column">
-        <h3>{{ crumb.key }}</h3>
-        <h4>{{crumb.lat}}</h4>
-        <p>{{crumb.lng}}</p>
+        <div layout="row" layout-align="start center">
+          <div flex class="md-title f-bold">{{ crumb.code }}</div>
+          <div flex class="md-caption crumb-place">{{ crumb.place }}</div>
+        </div>
+        <!--<h3>{{ crumb.key }}</h3>-->
+        <div layout="row" layout-align="start center">
+          <md-icon flex="15" md-font-icon="fa fa-truck"></md-icon>
+          <span flex class="md-body-1">{{crumb.lat}}</span>
+        </div>
+
+        <div layout="row" layout-align="start center">
+          <!--<i flex="15" class="fa fa-exclamation-triangle" aria-hidden="true"></i>-->
+          <md-icon flex="15" md-font-icon="fa fa-exclamation-triangle"></md-icon>
+          <span flex class="md-body-1">{{crumb.lng}}</span>
+          <md-icon md-font-icon="fa fa-info-circle"></md-icon>
+          <!--<i flex class="fa fa-info-circle text-right" aria-hidden="true"></i>-->
+        </div>
       </div>
     </md-list-item>
+    <md-divider ng-repeat-end ng-if="!$last"></md-divider>
     <md-progress-linear ng-show="isLoading" md-mode="indeterminate" class="pad-bot-10"></md-progress-linear>
   </md-list>
 </div>
