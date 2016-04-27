@@ -183,7 +183,7 @@
         }).pipe(templateCache('templates.js', {
             standalone : false,
             root       : '/p/modules',
-            module     : 'gae-angular-material-starter'
+            module     : 'hansel-core'
         })).pipe(gulp.dest(distDir));
     });
 
