@@ -16,13 +16,11 @@
           $scope.selectedCrumb = crumb;
         };
 
-        $scope.$on('$stateChangeSuccess', function(_, route) {
+        $scope.$on('$stateChangeSuccess', function() {
             $scope.isLoading = true;
 
-            $rootScope.mainTitle = route.data.mainTitle;
-
             L.mapbox.accessToken = 'pk.eyJ1Ijoic2lkaGFydGEiLCJhIjoiY2ltczg2OW1yMDFpNHZsbTR6MWs5ZHlwbSJ9.T5h2oS8vItUFM9__uoRvaA';
-            var map = L.mapbox.map('map-one', 'mapbox.streets').setView([-19.916681, -43.934493], 8);
+            var map = L.mapbox.map('map-one', 'mapbox.streets').setView([-19.916681, -43.934493], 10);
 
             Restangular.all('crumbs').getList().then(function(crumbs) {
                 $scope.crumbs = crumbs;

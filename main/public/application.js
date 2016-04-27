@@ -47,6 +47,21 @@ angular.module(AppConfig.applicationModuleName).config([
     }
 ]);
 
+// Setting event to change main title defined in route/state
+angular.module(AppConfig.applicationModuleName).run([
+    '$rootScope',
+    function($rootScope) {
+        $rootScope.$on('$stateChangeSuccess', function(event, toState) {
+            var mainTitle = AppConfig.applicationModuleName;
+            if (toState && toState.data && toState.data.mainTitle) {                
+                mainTitle = toState.data.mainTitle;
+            } 
+            
+            $rootScope.mainTitle = mainTitle;
+        });
+    }
+]);
+
 //Then define the init function for starting up the application
 angular.element(document).ready(function() {
     'use strict';
